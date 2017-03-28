@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Area 51"
+        description="Screen pop toolkit">
+
+        <Require feature="settitle" />
+        <Require feature="dynamic-height" />
+        <Require feature="pubsub-2" />
+    	<Require feature="setprefs" />
+        <Require feature="loadingindicator">
+            <Param name="manual-dismiss">false</Param>
+            <Param name="loading-timeout">10</Param>
+        </Require>
+    </ModulePrefs>
+
+    <Content type="html">
+        <![CDATA[
+        	<!DOCTYPE html>
+        	<!-- Styling -->
+            <link rel="stylesheet" href="ScreenPop.css" type="text/css" />
+
+            <!-- jQuery -->
+            <script type="text/javascript" src="/desktop/assets/js/jquery.min.js"></script>
+           
+            <!-- Finesse Library -->
+            <script type="text/javascript" src="/desktop/assets/js/finesse.js"></script>
+
+            <!-- Gadget Business Logic -->
+            <script type="text/javascript" src="Area51.js"></script>
+
+            <body class="claro">
+                <!-- sample gadget html only has 1 div which will be modified during the screenpop -->
+                <div>
+                    <div id="agentout">
+                </div>
+            </body>
+
+            <script type="text/javascript">
+                // initialize the gadget running the init handler defined in screenpop.js
+                gadgets.HubSettings.onConnect = function () {
+                    finesse.modules.SampleGadget.init();
+                };
+            </script>
+        ]]>
+    </Content>
+</Module>
